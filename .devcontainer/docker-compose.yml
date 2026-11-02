@@ -18,6 +18,9 @@ services:
       - "5000:5000" # app port
       - "5001:5001" # app(debug) port
       - "3000:3000" # remote debugger attach port
+    networks:
+      - default
+      - postgres
 
   postgres:
     container_name: postgres_container
@@ -32,7 +35,9 @@ services:
     ports:
       - "5432:5432"
     networks:
-      - postgres
+      postgres:
+        aliases:
+          - postgresdb
     restart: unless-stopped
 
   pgadmin:

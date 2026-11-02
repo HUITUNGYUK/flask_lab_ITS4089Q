@@ -1,5 +1,6 @@
 {
     "[jinja-html]": {
         "editor.defaultFormatter": "monosans.djlint"
-    }
+    },
+    "python-envs.defaultEnvManager": "ms-python.python:system"
 }

@@ -2,11 +2,10 @@ import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-
 class Config(object):
     SECRET_KEY = os.environ.get("SECRET_KEY") or "you-will-never-guess"
-    SQLALCHEMY_DATABASE_URI = os.environ.get("SQLALCHEMY_DATABASE_URI") or \
-        'sqlite:///' + os.path.join(basedir, 'app.db')
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL") or \
+        'postgresql://postgres:postgres@postgresdb:5432/postgres'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     MAIL_SERVER = os.environ.get('MAIL_SERVER') or "mailhog"
     MAIL_PORT = int(os.environ.get('MAIL_PORT') or 1025)
